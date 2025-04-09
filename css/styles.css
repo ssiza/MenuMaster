@@ -283,25 +283,26 @@ p {
 }
 
 /* Filter Functionality */
-/* Hide menu items initially */
-#appetizers:not(:checked) ~ .menu-items .appetizers,
-#mains:not(:checked) ~ .menu-items .mains,
-#desserts:not(:checked) ~ .menu-items .desserts {
+/* First hide all items when a filter is checked */
+#appetizers:checked ~ .menu-items .menu-item,
+#mains:checked ~ .menu-items .menu-item,
+#desserts:checked ~ .menu-items .menu-item {
     display: none;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0s;
 }
 
-/* Show all menu items when 'all' is checked */
-#all:checked ~ .menu-items .menu-item {
+/* Then show only the selected category */
+#appetizers:checked ~ .menu-items .appetizers,
+#mains:checked ~ .menu-items .mains, 
+#desserts:checked ~ .menu-items .desserts {
     display: block;
     animation: fadeIn 0.5s ease forwards;
 }
 
-#appetizers:checked ~ .menu-items .appetizers,
-#mains:checked ~ .menu-items .mains, 
-#desserts:checked ~ .menu-items .desserts {
+/* Show all menu items when 'all' is checked */
+#all:checked ~ .menu-items .menu-item {
     display: block;
     animation: fadeIn 0.5s ease forwards;
 }
@@ -339,6 +340,12 @@ p {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
     border-radius: 0;
     animation: slideDown 0.3s forwards;
+    display: flex;
+    justify-content: center;
+}
+
+body.dark-mode .category-filter.sticky {
+    background-color: var(--dark-bg);
 }
 
 @keyframes slideDown {

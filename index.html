@@ -290,12 +290,18 @@
         // Make the category filter sticky on scroll
         window.addEventListener('scroll', function() {
             const filter = document.getElementById('category-filter');
-            const filterPosition = filter.offsetTop;
+            const filterPosition = filter.getBoundingClientRect().top + window.scrollY;
+            const headerHeight = document.querySelector('.header').offsetHeight;
             
-            if (window.pageYOffset > filterPosition) {
+            if (window.scrollY > filterPosition - headerHeight) {
                 filter.classList.add('sticky');
+                // Add padding to prevent content jump
+                if(!filter.parentElement.style.paddingTop) {
+                    filter.parentElement.style.paddingTop = filter.offsetHeight + 'px';
+                }
             } else {
                 filter.classList.remove('sticky');
+                filter.parentElement.style.paddingTop = '';
             }
         });
 
@@ -303,7 +309,7 @@
         const backToTopBtn = document.getElementById('back-to-top');
         
         window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
+            if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
