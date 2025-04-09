@@ -1,13 +1,16 @@
 /* CSS Variables for Theming */
 :root {
     --primary-color: #5a352a;
+    --primary-color-hover: #6d4235;
     --secondary-color: #f8e9d2;
     --accent-color: #d35400;
+    --accent-color-hover: #ff6b1a;
     --text-color: #333333;
     --light-text-color: #777777;
     --background-color: #ffffff;
     --card-background: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-hover: rgba(0, 0, 0, 0.18);
     --border-radius: 8px;
     --transition-speed: 0.3s;
     --spacing-unit: 8px;
@@ -110,12 +113,19 @@ p {
 
 .filter-label:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-color);
+    box-shadow: 0 4px 8px var(--shadow-color-hover);
+    background-color: #f8f8f8;
 }
 
 .filter-input:checked + .filter-label {
     background-color: var(--primary-color);
     color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-color-hover);
+}
+
+.filter-input:checked + .filter-label:hover {
+    background-color: var(--primary-color-hover);
 }
 
 /* Menu Items */
@@ -130,12 +140,20 @@ p {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 12px var(--shadow-color);
-    transition: transform var(--transition-speed);
+    transition: all var(--transition-speed);
+    position: relative;
+    top: 0;
 }
 
 .menu-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px var(--shadow-color);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px var(--shadow-color-hover);
+}
+
+.menu-item:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px var(--shadow-color);
+    transition: all 0.1s;
 }
 
 .menu-item-image {
@@ -145,12 +163,24 @@ p {
     justify-content: center;
     background-color: var(--secondary-color);
     padding: calc(var(--spacing-unit) * 2);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item:hover .menu-item-image {
+    background-color: #f4dfbf;
 }
 
 .item-svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: all var(--transition-speed);
+}
+
+.menu-item:hover .item-svg {
+    transform: scale(1.08) rotate(2deg);
 }
 
 .menu-item-content {
@@ -162,6 +192,29 @@ p {
     font-size: 1.3rem;
     margin-bottom: calc(var(--spacing-unit) * 1.5);
     color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    transition: all var(--transition-speed);
+}
+
+.item-title:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all var(--transition-speed);
+    transform: translateX(-50%);
+}
+
+.menu-item:hover .item-title {
+    color: var(--primary-color-hover);
+}
+
+.menu-item:hover .item-title:after {
+    width: 70%;
 }
 
 .item-description {
@@ -171,9 +224,20 @@ p {
 }
 
 .item-price {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background-color: rgba(211, 84, 0, 0.1);
+    display: inline-block;
+    transition: all var(--transition-speed);
+}
+
+.menu-item:hover .item-price {
+    background-color: rgba(211, 84, 0, 0.2);
+    color: var(--accent-color-hover);
+    transform: scale(1.05);
 }
 
 /* Filter Functionality */
@@ -182,11 +246,33 @@ p {
 #mains:not(:checked) ~ .menu-items .mains,
 #desserts:not(:checked) ~ .menu-items .desserts {
     display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0s;
 }
 
 /* Show all menu items when 'all' is checked */
 #all:checked ~ .menu-items .menu-item {
     display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+#appetizers:checked ~ .menu-items .appetizers,
+#mains:checked ~ .menu-items .mains, 
+#desserts:checked ~ .menu-items .desserts {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer Styles */
