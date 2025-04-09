@@ -287,99 +287,253 @@
     </div>
 
     <script>
-        // Make the category filter sticky on scroll
-        window.addEventListener('scroll', function() {
-            const filter = document.getElementById('category-filter');
-            const filterPosition = filter.getBoundingClientRect().top + window.scrollY;
+        // Initialize the menu filtering with JavaScript for enhanced interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cache all elements
+            const filterInputs = document.querySelectorAll('.filter-input');
+            const menuItems = document.querySelectorAll('.menu-item');
+            const filterContainer = document.getElementById('category-filter');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const orderSummary = document.getElementById('order-summary');
+            const closeOrderSummaryBtn = document.getElementById('close-order-summary');
             const headerHeight = document.querySelector('.header').offsetHeight;
             
-            if (window.scrollY > filterPosition - headerHeight) {
-                filter.classList.add('sticky');
-                // Add padding to prevent content jump
-                if(!filter.parentElement.style.paddingTop) {
-                    filter.parentElement.style.paddingTop = filter.offsetHeight + 'px';
-                }
-            } else {
-                filter.classList.remove('sticky');
-                filter.parentElement.style.paddingTop = '';
+            let filterPosition = filterContainer.getBoundingClientRect().top + window.scrollY;
+            let currentCategory = 'all';
+            let orderTotal = 0;
+            let orderItems = [];
+            
+            // Initialize category filter
+            filterInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const category = this.id;
+                    currentCategory = category;
+                    
+                    // Remove any existing active classes
+                    menuItems.forEach(item => {
+                        item.classList.remove('active');
+                        item.style.display = 'none';
+                    });
+                    
+                    // Show items based on selection with animation
+                    if (category === 'all') {
+                        menuItems.forEach(item => {
+                            showItemWithAnimation(item);
+                        });
+                    } else {
+                        // Show only items matching the category
+                        document.querySelectorAll(`.menu-item.${category}`).forEach(item => {
+                            showItemWithAnimation(item);
+                        });
+                    }
+                    
+                    // Scroll to the menu items section if filter is sticky
+                    if (filterContainer.classList.contains('sticky')) {
+                        const menuItemsSection = document.querySelector('.menu-items');
+                        const paddingTop = parseInt(window.getComputedStyle(filterContainer).height);
+                        window.scrollTo({
+                            top: menuItemsSection.offsetTop - paddingTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Helper function to show item with animation
+            function showItemWithAnimation(item) {
+                item.classList.add('active');
+                item.style.display = 'block';
+                item.style.animation = 'fadeIn 0.5s ease forwards';
             }
-        });
-
-        // Back to top button
-        const backToTopBtn = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
+            
+            // Make the category filter sticky on scroll
+            window.addEventListener('scroll', function() {
+                // Recalculate on scroll for responsive layouts
+                if (!filterContainer.classList.contains('sticky')) {
+                    filterPosition = filterContainer.getBoundingClientRect().top + window.scrollY;
+                }
+                
+                if (window.scrollY > filterPosition - headerHeight) {
+                    filterContainer.classList.add('sticky');
+                    // Add padding to prevent content jump
+                    if(!filterContainer.parentElement.style.paddingTop) {
+                        filterContainer.parentElement.style.paddingTop = filterContainer.offsetHeight + 'px';
+                    }
+                } else {
+                    filterContainer.classList.remove('sticky');
+                    filterContainer.parentElement.style.paddingTop = '';
+                }
+                
+                // Back to top button visibility
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // Back to top button click
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Dark mode toggle with state persistence
+            darkModeToggle.checked = localStorage.getItem('darkMode') === 'true';
+            if (darkModeToggle.checked) {
+                document.body.classList.add('dark-mode');
             }
-        });
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', this.checked);
             });
-        });
-
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        
-        darkModeToggle.addEventListener('change', function() {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Handle quantity controls and add to order functionality
-        const quantityBtns = document.querySelectorAll('.quantity-btn');
-        const addToOrderBtns = document.querySelectorAll('.add-to-order-btn');
-        
-        quantityBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const quantityElem = this.parentElement.querySelector('.quantity');
-                let quantity = parseInt(quantityElem.textContent);
+            
+            // Handle quantity controls
+            const quantityBtns = document.querySelectorAll('.quantity-btn');
+            quantityBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const quantityElem = this.parentElement.querySelector('.quantity');
+                    let quantity = parseInt(quantityElem.textContent);
+                    
+                    if (this.classList.contains('minus') && quantity > 0) {
+                        quantity--;
+                    } else if (this.classList.contains('plus')) {
+                        quantity++;
+                    }
+                    
+                    quantityElem.textContent = quantity;
+                    
+                    // Enable/disable the add to order button based on quantity
+                    const addBtn = this.closest('.item-controls').querySelector('.add-to-order-btn');
+                    if (quantity > 0) {
+                        addBtn.classList.add('active');
+                    } else {
+                        addBtn.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Simulate adding items to order
+            const addToOrderBtns = document.querySelectorAll('.add-to-order-btn');
+            addToOrderBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const menuItem = this.closest('.menu-item');
+                    const quantityElem = menuItem.querySelector('.quantity');
+                    const quantity = parseInt(quantityElem.textContent);
+                    
+                    if (quantity > 0) {
+                        // Get item details
+                        const itemName = menuItem.querySelector('.item-title').textContent;
+                        const itemPrice = parseFloat(menuItem.querySelector('.item-price').textContent.replace('$', ''));
+                        const itemTotal = quantity * itemPrice;
+                        
+                        // Add to order items
+                        addToOrder(itemName, quantity, itemPrice, itemTotal);
+                        
+                        // Show success message
+                        const successMessage = document.createElement('div');
+                        successMessage.classList.add('add-success');
+                        successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Added to order!';
+                        menuItem.appendChild(successMessage);
+                        
+                        // Remove message after 2 seconds
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 2000);
+                        
+                        // Reset quantity
+                        quantityElem.textContent = '0';
+                        this.classList.remove('active');
+                        
+                        // Show order summary
+                        orderSummary.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Function to add item to order
+            function addToOrder(name, quantity, price, total) {
+                // Check if item already exists in order
+                const existingItemIndex = orderItems.findIndex(item => item.name === name);
                 
-                if (this.classList.contains('minus') && quantity > 0) {
-                    quantity--;
-                } else if (this.classList.contains('plus')) {
-                    quantity++;
+                if (existingItemIndex !== -1) {
+                    // Update existing item
+                    orderItems[existingItemIndex].quantity += quantity;
+                    orderItems[existingItemIndex].total += total;
+                } else {
+                    // Add new item
+                    orderItems.push({
+                        name,
+                        quantity,
+                        price,
+                        total
+                    });
                 }
                 
-                quantityElem.textContent = quantity;
-            });
-        });
-        
-        // Simulate adding items to order
-        addToOrderBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const menuItem = this.closest('.menu-item');
-                const quantityElem = menuItem.querySelector('.quantity');
-                const quantity = parseInt(quantityElem.textContent);
+                // Update order total
+                orderTotal = 0;
+                orderItems.forEach(item => {
+                    orderTotal += item.total;
+                });
                 
-                if (quantity > 0) {
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.classList.add('add-success');
-                    successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Added to order!';
-                    menuItem.appendChild(successMessage);
-                    
-                    // Remove message after 2 seconds
-                    setTimeout(() => {
-                        successMessage.remove();
-                    }, 2000);
-                    
-                    // Reset quantity
-                    quantityElem.textContent = '0';
-                    
-                    // Show order summary
-                    document.getElementById('order-summary').classList.remove('hidden');
+                // Update the UI
+                updateOrderSummary();
+            }
+            
+            // Function to update order summary
+            function updateOrderSummary() {
+                const orderItemsContainer = document.querySelector('.order-items');
+                const orderTotalAmount = document.getElementById('order-total-amount');
+                
+                // Clear current items
+                orderItemsContainer.innerHTML = '';
+                
+                // Add items to order summary
+                if (orderItems.length === 0) {
+                    orderItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+                } else {
+                    orderItems.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'order-item';
+                        itemElement.innerHTML = `
+                            <div class="order-item-details">
+                                <span class="order-item-name">${item.name}</span>
+                                <span class="order-item-quantity">x${item.quantity}</span>
+                            </div>
+                            <span class="order-item-price">$${item.total.toFixed(2)}</span>
+                        `;
+                        orderItemsContainer.appendChild(itemElement);
+                    });
+                }
+                
+                // Update total
+                orderTotalAmount.textContent = `$${orderTotal.toFixed(2)}`;
+            }
+            
+            // Close order summary
+            closeOrderSummaryBtn.addEventListener('click', function() {
+                orderSummary.classList.add('hidden');
+            });
+            
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (orderItems.length > 0) {
+                    alert('Thank you for your order! In a real application, this would process your payment and submit your order.');
+                    // Clear order
+                    orderItems = [];
+                    orderTotal = 0;
+                    updateOrderSummary();
+                    orderSummary.classList.add('hidden');
                 }
             });
-        });
-        
-        // Close order summary
-        document.getElementById('close-order-summary').addEventListener('click', function() {
-            document.getElementById('order-summary').classList.add('hidden');
+            
+            // Set initial state (show all items)
+            document.getElementById('all').checked = true;
+            document.getElementById('all').dispatchEvent(new Event('change'));
         });
     </script>
 </body>

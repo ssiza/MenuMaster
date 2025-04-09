@@ -283,28 +283,25 @@ p {
 }
 
 /* Filter Functionality */
-/* First hide all items when a filter is checked */
-#appetizers:checked ~ .menu-items .menu-item,
-#mains:checked ~ .menu-items .menu-item,
-#desserts:checked ~ .menu-items .menu-item {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0s;
+/* CSS will be managed by JavaScript for better interactivity */
+.menu-item {
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Then show only the selected category */
-#appetizers:checked ~ .menu-items .appetizers,
-#mains:checked ~ .menu-items .mains, 
-#desserts:checked ~ .menu-items .desserts {
-    display: block;
-    animation: fadeIn 0.5s ease forwards;
+.menu-item.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Show all menu items when 'all' is checked */
-#all:checked ~ .menu-items .menu-item {
-    display: block;
-    animation: fadeIn 0.5s ease forwards;
+/* Additional styles for improved interactivity */
+.add-to-order-btn {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.add-to-order-btn.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @keyframes fadeIn {
@@ -648,6 +645,44 @@ body.dark-mode .category-filter.sticky {
     overflow-y: auto;
 }
 
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item-name {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.order-item-quantity {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.order-item-price {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--light-text-color);
+    font-style: italic;
+    margin: 20px 0;
+}
+
 .order-total {
     padding: 15px;
     background-color: rgba(0,0,0,0.05);
@@ -657,10 +692,13 @@ body.dark-mode .category-filter.sticky {
 .order-total p {
     margin: 0 0 10px 0;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
 }
 
 #order-total-amount {
     color: var(--accent-color);
+    font-size: 1.2rem;
 }
 
 #checkout-btn {
@@ -668,11 +706,13 @@ body.dark-mode .category-filter.sticky {
     background-color: var(--success-color);
     color: white;
     border: none;
-    padding: 8px;
+    padding: 10px;
     border-radius: var(--border-radius);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 #checkout-btn:hover {
