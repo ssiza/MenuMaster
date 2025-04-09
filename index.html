@@ -6,8 +6,18 @@
     <title>Gourmet Haven Restaurant</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="dark-mode-toggle" class="dark-mode-input">
+        <label for="dark-mode-toggle" class="dark-mode-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+
     <header class="header">
         <div class="container">
             <h1 class="logo">Gourmet Haven</h1>
@@ -20,7 +30,7 @@
             <h2 class="section-title">Our Menu</h2>
             
             <!-- Category Filter -->
-            <div class="category-filter">
+            <div class="category-filter" id="category-filter">
                 <input type="radio" id="all" name="category" value="all" checked class="filter-input">
                 <label for="all" class="filter-label">All</label>
                 
@@ -37,7 +47,8 @@
             <!-- Menu Items -->
             <div class="menu-items">
                 <!-- Appetizers -->
-                <div class="menu-item appetizers">
+                <div class="menu-item appetizers featured">
+                    <div class="featured-badge"><i class="fas fa-star"></i> Chef's Choice</div>
                     <div class="menu-item-image">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
                             <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
@@ -51,6 +62,14 @@
                         <h3 class="item-title">Bruschetta</h3>
                         <p class="item-description">Toasted bread rubbed with garlic and topped with olive oil, salt, and fresh tomatoes.</p>
                         <div class="item-price">$8.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
@@ -95,7 +114,8 @@
                 </div>
 
                 <!-- Mains -->
-                <div class="menu-item mains">
+                <div class="menu-item mains featured">
+                    <div class="featured-badge"><i class="fas fa-star"></i> Popular</div>
                     <div class="menu-item-image">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
                             <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
@@ -110,6 +130,14 @@
                         <h3 class="item-title">Grilled Ribeye Steak</h3>
                         <p class="item-description">Prime 12oz ribeye steak grilled to perfection, served with roasted potatoes and seasonal vegetables.</p>
                         <div class="item-price">$29.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
@@ -204,7 +232,8 @@
                     </div>
                 </div>
 
-                <div class="menu-item desserts">
+                <div class="menu-item desserts featured">
+                    <div class="featured-badge"><i class="fas fa-star"></i> Bestseller</div>
                     <div class="menu-item-image">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
                             <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
@@ -219,6 +248,14 @@
                         <h3 class="item-title">Chocolate Lava Cake</h3>
                         <p class="item-description">Warm chocolate cake with a molten center, served with vanilla ice cream and fresh berries.</p>
                         <div class="item-price">$10.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,5 +267,114 @@
             <p>&copy; 2023 Gourmet Haven Restaurant. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div id="order-summary" class="hidden">
+        <div class="order-summary-header">
+            <h3>Your Order <i class="fas fa-shopping-cart"></i></h3>
+            <button id="close-order-summary"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="order-items">
+            <!-- Order items will be added dynamically -->
+        </div>
+        <div class="order-total">
+            <p>Total: <span id="order-total-amount">$0.00</span></p>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Make the category filter sticky on scroll
+        window.addEventListener('scroll', function() {
+            const filter = document.getElementById('category-filter');
+            const filterPosition = filter.offsetTop;
+            
+            if (window.pageYOffset > filterPosition) {
+                filter.classList.add('sticky');
+            } else {
+                filter.classList.remove('sticky');
+            }
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        
+        darkModeToggle.addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Handle quantity controls and add to order functionality
+        const quantityBtns = document.querySelectorAll('.quantity-btn');
+        const addToOrderBtns = document.querySelectorAll('.add-to-order-btn');
+        
+        quantityBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const quantityElem = this.parentElement.querySelector('.quantity');
+                let quantity = parseInt(quantityElem.textContent);
+                
+                if (this.classList.contains('minus') && quantity > 0) {
+                    quantity--;
+                } else if (this.classList.contains('plus')) {
+                    quantity++;
+                }
+                
+                quantityElem.textContent = quantity;
+            });
+        });
+        
+        // Simulate adding items to order
+        addToOrderBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const menuItem = this.closest('.menu-item');
+                const quantityElem = menuItem.querySelector('.quantity');
+                const quantity = parseInt(quantityElem.textContent);
+                
+                if (quantity > 0) {
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.classList.add('add-success');
+                    successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Added to order!';
+                    menuItem.appendChild(successMessage);
+                    
+                    // Remove message after 2 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 2000);
+                    
+                    // Reset quantity
+                    quantityElem.textContent = '0';
+                    
+                    // Show order summary
+                    document.getElementById('order-summary').classList.remove('hidden');
+                }
+            });
+        });
+        
+        // Close order summary
+        document.getElementById('close-order-summary').addEventListener('click', function() {
+            document.getElementById('order-summary').classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
