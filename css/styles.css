@@ -1,0 +1,245 @@
+/* CSS Variables for Theming */
+:root {
+    --primary-color: #5a352a;
+    --secondary-color: #f8e9d2;
+    --accent-color: #d35400;
+    --text-color: #333333;
+    --light-text-color: #777777;
+    --background-color: #ffffff;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --spacing-unit: 8px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(var(--spacing-unit) * 3);
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+p {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: calc(var(--spacing-unit) * 5) 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-bottom: calc(var(--spacing-unit));
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: calc(var(--spacing-unit) * 5) 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: calc(var(--spacing-unit) * 4);
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: calc(var(--spacing-unit) * 2) auto;
+}
+
+/* Category Filter */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 5);
+}
+
+.filter-input {
+    display: none;
+}
+
+.filter-label {
+    display: block;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+.filter-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.filter-input:checked + .filter-label {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Menu Items */
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 3);
+}
+
+.menu-item {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform var(--transition-speed);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+.menu-item-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    padding: calc(var(--spacing-unit) * 2);
+}
+
+.item-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.menu-item-content {
+    padding: calc(var(--spacing-unit) * 3);
+    text-align: center;
+}
+
+.item-title {
+    font-size: 1.3rem;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    color: var(--primary-color);
+}
+
+.item-description {
+    color: var(--light-text-color);
+    font-size: 0.95rem;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.item-price {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+/* Filter Functionality */
+/* Hide menu items initially */
+#appetizers:not(:checked) ~ .menu-items .appetizers,
+#mains:not(:checked) ~ .menu-items .mains,
+#desserts:not(:checked) ~ .menu-items .desserts {
+    display: none;
+}
+
+/* Show all menu items when 'all' is checked */
+#all:checked ~ .menu-items .menu-item {
+    display: block;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: calc(var(--spacing-unit) * 3) 0;
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-filter {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: calc(var(--spacing-unit));
+        justify-content: flex-start;
+    }
+
+    .filter-label {
+        padding: calc(var(--spacing-unit)) calc(var(--spacing-unit) * 2);
+        white-space: nowrap;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: calc(var(--spacing-unit) * 2);
+    }
+
+    .menu-item-image {
+        height: 150px;
+    }
+
+    .item-title {
+        font-size: 1.2rem;
+    }
+
+    .item-description {
+        font-size: 0.9rem;
+    }
+}
