@@ -470,6 +470,8 @@ body.dark-mode .category-filter.sticky {
 /* Navigation Styles */
 .main-nav {
     margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 15px;
 }
 
 .main-nav ul {
@@ -488,6 +490,8 @@ body.dark-mode .category-filter.sticky {
     padding: 10px 15px;
     border-radius: var(--border-radius);
     transition: all var(--transition-speed);
+    position: relative;
+    background-color: rgba(0,0,0,0.03);
 }
 
 .main-nav a:hover {
@@ -497,7 +501,8 @@ body.dark-mode .category-filter.sticky {
 
 .main-nav a.active {
     color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
+    background-color: rgba(211, 84, 0, 0.15);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 /* Dark Mode Toggle */
