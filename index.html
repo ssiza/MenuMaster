@@ -287,107 +287,347 @@
                 </div>
 
                 <div class="menu-item mains">
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <circle cx="100" cy="100" r="60" fill="#f5f5dc" />
-                            <path d="M60,100 C80,80 120,80 140,100 C120,120 80,120 60,100 Z" fill="#ffe4b5" />
-                            <path d="M80,100 C90,90 110,90 120,100 C110,110 90,110 80,100 Z" fill="#ff6347" />
-                            <path d="M70,90 L80,85 M120,85 L130,90" stroke="#006400" stroke-width="3" fill="none" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="60" fill="#f5f5dc" />
+                                        <path d="M60,100 C80,80 120,80 140,100 C120,120 80,120 60,100 Z" fill="#ffe4b5" />
+                                        <path d="M80,100 C90,90 110,90 120,100 C110,110 90,110 80,100 Z" fill="#ff6347" />
+                                        <path d="M70,90 L80,85 M120,85 L130,90" stroke="#006400" stroke-width="3" fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="60" fill="#f5f5dc" />
+                                        <path d="M60,110 C80,90 120,90 140,110 C120,130 80,130 60,110 Z" fill="#ffe4b5" />
+                                        <circle cx="80" cy="95" r="10" fill="#ff6347" />
+                                        <circle cx="120" cy="95" r="10" fill="#ff6347" />
+                                        <path d="M60,80 L80,75 M120,75 L140,80" stroke="#006400" stroke-width="3" fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="60" fill="#f5f5dc" />
+                                        <path d="M70,110 C90,90 110,90 130,110" stroke="#ffe4b5" stroke-width="10" fill="none" />
+                                        <path d="M80,90 C100,70 120,70 140,90" stroke="#ff6347" stroke-width="5" fill="none" />
+                                        <path d="M60,80 C80,60 100,60 120,80" stroke="#006400" stroke-width="3" fill="none" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">Seafood Linguine</h3>
                         <p class="item-description">Fresh linguine pasta tossed with shrimp, clams, mussels, and calamari in a light garlic white wine sauce.</p>
                         <div class="item-price">$24.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="menu-item mains">
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <circle cx="100" cy="110" r="50" fill="#f5deb3" />
-                            <path d="M80,80 Q100,60 120,80 T160,80" fill="#d2b48c" />
-                            <path d="M65,90 C80,70 120,70 135,90" fill="#d2b48c" />
-                            <circle cx="85" cy="95" r="8" fill="#7a3b2e" />
-                            <circle cx="115" cy="95" r="8" fill="#7a3b2e" />
-                            <path d="M75,125 Q100,145 125,125" stroke="#7a3b2e" stroke-width="3" fill="none" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="110" r="50" fill="#f5deb3" />
+                                        <path d="M80,80 Q100,60 120,80 T160,80" fill="#d2b48c" />
+                                        <path d="M65,90 C80,70 120,70 135,90" fill="#d2b48c" />
+                                        <circle cx="85" cy="95" r="8" fill="#7a3b2e" />
+                                        <circle cx="115" cy="95" r="8" fill="#7a3b2e" />
+                                        <path d="M75,125 Q100,145 125,125" stroke="#7a3b2e" stroke-width="3" fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="110" r="50" fill="#f5deb3" />
+                                        <path d="M70,70 Q100,50 130,70" fill="#d2b48c" />
+                                        <circle cx="75" cy="95" r="10" fill="#7a3b2e" />
+                                        <circle cx="125" cy="95" r="10" fill="#7a3b2e" />
+                                        <path d="M85,125 Q100,140 115,125" stroke="#7a3b2e" stroke-width="3" fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="60" y="90" width="80" height="40" rx="10" fill="#f5deb3" />
+                                        <path d="M60,70 Q100,50 140,70" fill="#d2b48c" />
+                                        <circle cx="80" cy="95" r="8" fill="#7a3b2e" />
+                                        <circle cx="120" cy="95" r="8" fill="#7a3b2e" />
+                                        <rect x="85" y="115" width="30" height="10" rx="5" fill="#7a3b2e" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">Chicken Marsala</h3>
                         <p class="item-description">Tender chicken breasts sautéed with mushrooms in a rich marsala wine sauce, served with garlic mashed potatoes.</p>
                         <div class="item-price">$21.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="menu-item mains">
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <circle cx="100" cy="100" r="55" fill="#5d8a48" />
-                            <path d="M65,85 C85,65 115,65 135,85 C155,105 145,135 125,145 C105,155 75,155 55,135 C35,115 45,105 65,85" fill="#3a5f2c" />
-                            <circle cx="85" cy="95" r="10" fill="#d9a648" />
-                            <circle cx="115" cy="95" r="10" fill="#d9a648" />
-                            <circle cx="100" cy="125" r="10" fill="#d9a648" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="55" fill="#5d8a48" />
+                                        <path d="M65,85 C85,65 115,65 135,85 C155,105 145,135 125,145 C105,155 75,155 55,135 C35,115 45,105 65,85" fill="#3a5f2c" />
+                                        <circle cx="85" cy="95" r="10" fill="#d9a648" />
+                                        <circle cx="115" cy="95" r="10" fill="#d9a648" />
+                                        <circle cx="100" cy="125" r="10" fill="#d9a648" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="55" fill="#5d8a48" />
+                                        <path d="M70,80 C90,60 110,60 130,80 C150,100 140,130 120,140 C100,150 80,150 60,130 C40,110 50,100 70,80" fill="#3a5f2c" />
+                                        <circle cx="80" cy="90" r="12" fill="#d9a648" />
+                                        <circle cx="120" cy="90" r="12" fill="#d9a648" />
+                                        <circle cx="100" cy="120" r="12" fill="#ff6347" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <circle cx="100" cy="100" r="55" fill="#5d8a48" />
+                                        <circle cx="75" cy="80" r="15" fill="#d9a648" />
+                                        <circle cx="125" cy="80" r="15" fill="#d9a648" />
+                                        <circle cx="75" cy="120" r="15" fill="#ff6347" />
+                                        <circle cx="125" cy="120" r="15" fill="#ff6347" />
+                                        <circle cx="100" cy="100" r="15" fill="#f0e68c" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">Vegetable Risotto</h3>
                         <p class="item-description">Creamy arborio rice slowly cooked with seasonal vegetables, white wine, and parmesan cheese.</p>
                         <div class="item-price">$18.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Desserts -->
                 <div class="menu-item desserts">
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <path d="M60,120 L140,120 L130,80 L70,80 Z" fill="#8b4513" />
-                            <rect x="65" y="75" width="70" height="5" fill="#d2691e" />
-                            <path d="M90,75 L90,65 C90,60 110,60 110,65 L110,75 Z" fill="#a0522d" />
-                            <circle cx="85" cy="100" r="8" fill="#fff" />
-                            <circle cx="115" cy="100" r="8" fill="#fff" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <path d="M60,120 L140,120 L130,80 L70,80 Z" fill="#8b4513" />
+                                        <rect x="65" y="75" width="70" height="5" fill="#d2691e" />
+                                        <path d="M90,75 L90,65 C90,60 110,60 110,65 L110,75 Z" fill="#a0522d" />
+                                        <circle cx="85" cy="100" r="8" fill="#fff" />
+                                        <circle cx="115" cy="100" r="8" fill="#fff" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="50" y="80" width="100" height="40" fill="#8b4513" />
+                                        <rect x="50" y="80" width="100" height="10" fill="#d2691e" />
+                                        <rect x="50" y="90" width="100" height="10" fill="#a0522d" />
+                                        <rect x="50" y="100" width="100" height="10" fill="#d2691e" />
+                                        <rect x="50" y="110" width="100" height="10" fill="#a0522d" />
+                                        <rect x="60" y="70" width="80" height="5" fill="#d2691e" />
+                                        <rect x="70" y="65" width="60" height="5" fill="#a0522d" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <path d="M50,120 L150,120 L140,75 L60,75 Z" fill="#8b4513" />
+                                        <path d="M65,75 L65,65 L135,65 L135,75 Z" fill="#a0522d" />
+                                        <rect x="65" y="85" width="70" height="5" fill="#d2691e" />
+                                        <rect x="65" y="95" width="70" height="5" fill="#a0522d" />
+                                        <rect x="65" y="105" width="70" height="5" fill="#d2691e" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">Tiramisu</h3>
                         <p class="item-description">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa powder.</p>
                         <div class="item-price">$8.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="menu-item desserts">
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <path d="M60,120 C60,90 140,90 140,120 Z" fill="#f5f5dc" />
-                            <circle cx="100" cy="90" r="30" fill="#fffacd" />
-                            <path d="M85,75 Q100,65 115,75" stroke="#ffb6c1" stroke-width="5" fill="none" />
-                            <circle cx="85" cy="85" r="5" fill="#ff69b4" />
-                            <circle cx="115" cy="85" r="5" fill="#ff69b4" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <path d="M60,120 C60,90 140,90 140,120 Z" fill="#f5f5dc" />
+                                        <circle cx="100" cy="90" r="30" fill="#fffacd" />
+                                        <path d="M85,75 Q100,65 115,75" stroke="#ffb6c1" stroke-width="5" fill="none" />
+                                        <circle cx="85" cy="85" r="5" fill="#ff69b4" />
+                                        <circle cx="115" cy="85" r="5" fill="#ff69b4" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <path d="M50,120 C50,80 150,80 150,120 Z" fill="#f5f5dc" />
+                                        <circle cx="100" cy="80" r="35" fill="#fffacd" />
+                                        <circle cx="85" cy="70" r="8" fill="#ff6347" />
+                                        <circle cx="115" cy="70" r="8" fill="#ff6347" />
+                                        <circle cx="75" cy="90" r="8" fill="#ff6347" />
+                                        <circle cx="125" cy="90" r="8" fill="#ff6347" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="60" y="70" width="80" height="15" rx="5" fill="#d2b48c" />
+                                        <path d="M60,85 L60,120 L140,120 L140,85 Z" fill="#f5f5dc" />
+                                        <circle cx="75" cy="95" r="8" fill="#ff69b4" />
+                                        <circle cx="100" cy="95" r="8" fill="#ff69b4" />
+                                        <circle cx="125" cy="95" r="8" fill="#ff69b4" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">New York Cheesecake</h3>
                         <p class="item-description">Rich and creamy cheesecake with a graham cracker crust, topped with fresh berry compote.</p>
                         <div class="item-price">$9.99</div>
+                        <div class="item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <button class="add-to-order-btn">Add to Order</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="menu-item desserts featured">
                     <div class="featured-badge"><i class="fas fa-star"></i> Bestseller</div>
-                    <div class="menu-item-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
-                            <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
-                            <rect x="60" y="70" width="80" height="60" rx="5" fill="#3c1e08" />
-                            <rect x="55" y="70" width="90" height="10" rx="5" fill="#5c2e0d" />
-                            <rect x="70" y="90" width="60" height="5" fill="#7a4419" />
-                            <rect x="70" y="100" width="60" height="5" fill="#7a4419" />
-                            <circle cx="130" cy="120" r="8" fill="#f5f5f5" />
-                        </svg>
+                    <div class="menu-item-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="60" y="70" width="80" height="60" rx="5" fill="#3c1e08" />
+                                        <rect x="55" y="70" width="90" height="10" rx="5" fill="#5c2e0d" />
+                                        <rect x="70" y="90" width="60" height="5" fill="#7a4419" />
+                                        <rect x="70" y="100" width="60" height="5" fill="#7a4419" />
+                                        <circle cx="130" cy="120" r="8" fill="#f5f5f5" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="65" y="75" width="70" height="50" rx="5" fill="#3c1e08" />
+                                        <circle cx="100" cy="100" r="15" fill="#8b4513" />
+                                        <path d="M100,100 L105,90 L110,85 L115,90 L110,95 L105,100 L110,105 L115,110 L110,115 L105,110 L100,105 L95,110 L90,115 L85,110 L90,105 L95,100 L90,95 L85,90 L90,85 L95,90 Z" fill="#ff6347" />
+                                    </svg>
+                                </div>
+                                <div class="carousel-slide">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="item-svg">
+                                        <circle cx="100" cy="100" r="80" fill="#f8e9d2" />
+                                        <rect x="60" y="80" width="80" height="40" rx="5" fill="#3c1e08" />
+                                        <circle cx="80" cy="70" r="12" fill="#f5f5f5" />
+                                        <circle cx="120" cy="70" r="12" fill="#f5f5f5" />
+                                        <circle cx="70" cy="130" r="10" fill="#ff6347" />
+                                        <circle cx="100" cy="135" r="10" fill="#ff6347" />
+                                        <circle cx="130" cy="130" r="10" fill="#ff6347" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="menu-item-content">
                         <h3 class="item-title">Chocolate Lava Cake</h3>
@@ -679,6 +919,58 @@
             // Set initial state (show all items)
             document.getElementById('all').checked = true;
             document.getElementById('all').dispatchEvent(new Event('change'));
+            
+            // Initialize carousels
+            const carousels = document.querySelectorAll('.carousel-container');
+            
+            carousels.forEach(carousel => {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const dots = carousel.querySelectorAll('.dot');
+                const prevBtn = carousel.querySelector('.carousel-btn.prev');
+                const nextBtn = carousel.querySelector('.carousel-btn.next');
+                
+                let currentIndex = 0;
+                const slideWidth = 100;
+                
+                // Update the carousel track position
+                function updateCarousel() {
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                    
+                    // Update active dot
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+                
+                // Handle next button click
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel();
+                });
+                
+                // Handle previous button click
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateCarousel();
+                });
+                
+                // Handle dot clicks
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+                
+                // Auto advance carousel every 5 seconds
+                setInterval(() => {
+                    if (!carousel.querySelector(':hover')) {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateCarousel();
+                    }
+                }, 5000);
+            });
         });
     </script>
 </body>
