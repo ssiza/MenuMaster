@@ -1417,11 +1417,11 @@ body.dark-mode .category-filter.sticky {
 .form-group select, 
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: white;
     transition: all 0.3s;
 }
@@ -1719,14 +1719,14 @@ body.dark-mode .category-filter.sticky {
 .form-steps {
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 20px 0;
     position: relative;
 }
 
 .form-steps:before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 15px;
     left: 0;
     right: 0;
     height: 2px;
@@ -1743,8 +1743,8 @@ body.dark-mode .category-filter.sticky {
 }
 
 .step-number {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #e0e0e0;
     color: var(--text-color);
@@ -1752,12 +1752,13 @@ body.dark-mode .category-filter.sticky {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .step-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--light-text-color);
     transition: all 0.3s ease;
@@ -1910,10 +1911,11 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 .time-slot {
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: var(--border-radius);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
+    text-align: center;
 }
 
 .time-slot.available {
