@@ -1389,24 +1389,25 @@ body.dark-mode .category-filter.sticky {
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 0;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: var(--text-color);
     font-weight: 600;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .form-group label i {
@@ -1671,30 +1672,30 @@ body.dark-mode .category-filter.sticky {
 
 /* Reservations Page Styles */
 .reservations-section {
-    padding: 50px 0;
+    padding: 30px 0;
 }
 
 .reservation-banner {
     background-color: rgba(211, 84, 0, 0.1);
     border-radius: var(--border-radius);
-    padding: 20px;
-    margin-bottom: 40px;
+    padding: 15px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .banner-icon {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     background-color: white;
     color: var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     box-shadow: 0 5px 15px rgba(211, 84, 0, 0.2);
 }
 
@@ -1719,14 +1720,14 @@ body.dark-mode .category-filter.sticky {
 .form-steps {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 15px 0;
     position: relative;
 }
 
 .form-steps:before {
     content: '';
     position: absolute;
-    top: 15px;
+    top: 12px;
     left: 0;
     right: 0;
     height: 2px;
@@ -1743,8 +1744,8 @@ body.dark-mode .category-filter.sticky {
 }
 
 .step-number {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background-color: #e0e0e0;
     color: var(--text-color);
@@ -1752,9 +1753,9 @@ body.dark-mode .category-filter.sticky {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .step-label {
@@ -1881,39 +1882,39 @@ input.invalid, select.invalid, textarea.invalid {
 
 /* Time Slots */
 .selected-time-slots {
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: rgba(0,0,0,0.02);
     border-radius: var(--border-radius);
-    padding: 20px;
+    padding: 15px;
 }
 
 .time-slot-header {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .time-slot-header h4 {
     color: var(--primary-color);
-    margin: 0 0 5px 0;
-    font-size: 1.1rem;
+    margin: 0 0 3px 0;
+    font-size: 1rem;
 }
 
 .time-slot-header p {
     margin: 0;
     color: var(--light-text-color);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .time-slots {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
 .time-slot {
-    padding: 6px 10px;
+    padding: 5px 8px;
     border-radius: var(--border-radius);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     text-align: center;
 }
@@ -1993,7 +1994,7 @@ input.invalid, select.invalid, textarea.invalid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     background-color: white;
     border: 2px solid #eee;
     border-radius: var(--border-radius);
@@ -2008,16 +2009,16 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 .option-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #f5f5f5;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     transition: all 0.3s;
 }
 
@@ -2070,7 +2071,7 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 .card-content {
-    padding: 20px;
+    padding: 15px;
 }
 
 /* Policy List */
@@ -2083,8 +2084,8 @@ input.invalid, select.invalid, textarea.invalid {
 .policy-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px;
-    padding: 12px 0;
+    gap: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
@@ -2118,35 +2119,35 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 .availability-calendar {
-    padding: 20px;
+    padding: 15px;
 }
 
 .calendar-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-bottom: 10px;
+    gap: 3px;
+    margin-bottom: 5px;
 }
 
 .weekday {
     text-align: center;
     font-weight: 600;
     color: var(--primary-color);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .calendar-body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 3px;
 }
 
 .day {
     background-color: rgba(0,0,0,0.02);
     border-radius: 5px;
-    padding: 10px 5px;
+    padding: 5px 3px;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .day .lunch {
@@ -2180,15 +2181,16 @@ input.invalid, select.invalid, textarea.invalid {
 .availability-legend {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 0 20px 20px;
+    gap: 12px;
+    padding: 0 10px 10px;
+    flex-wrap: wrap;
 }
 
 .legend-box {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 4px;
 }
 
 .legend-box.busy {
