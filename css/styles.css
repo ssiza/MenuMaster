@@ -1482,7 +1482,7 @@ body.dark-mode .category-filter.sticky {
 .success-message {
     background-color: var(--success-color);
     color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: var(--border-radius);
     margin-top: 30px;
     text-align: center;
@@ -1490,17 +1490,54 @@ body.dark-mode .category-filter.sticky {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+    animation: slideInUp 0.5s forwards;
 }
 
 .success-message i {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    background: white;
+    color: var(--success-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-message h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.success-message ul {
+    margin: 10px 0 5px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.success-message li {
+    margin-bottom: 5px;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .error-message {
     background-color: #e74c3c;
     color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: var(--border-radius);
     margin-top: 30px;
     text-align: center;
@@ -1508,11 +1545,31 @@ body.dark-mode .category-filter.sticky {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+    animation: slideInUp 0.5s forwards;
 }
 
 .error-message i {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    background: white;
+    color: #e74c3c;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-message h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.error-message p {
+    margin: 0;
 }
 
 .hidden {
@@ -1920,6 +1977,7 @@ input.invalid, select.invalid, textarea.invalid {
 .seating-option {
     position: relative;
     width: calc(50% - 10px);
+    transition: all 0.3s ease;
 }
 
 .seating-option input[type="radio"] {
@@ -2214,10 +2272,11 @@ input.invalid, select.invalid, textarea.invalid {
     .contact-content, 
     .reservation-content {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
     
@@ -2277,6 +2336,75 @@ input.invalid, select.invalid, textarea.invalid {
         right: 15px;
         width: 40px;
         height: 40px;
+    }
+    
+    /* Reservation page responsiveness */
+    .reservation-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+    
+    .banner-content h3 {
+        justify-content: center;
+    }
+    
+    .form-steps {
+        margin: 20px 0;
+    }
+    
+    .step-label {
+        font-size: 0.8rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .back-btn, .next-btn, .reserve-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .time-slots {
+        justify-content: center;
+    }
+    
+    .time-slot {
+        flex-basis: calc(50% - 10px);
+        text-align: center;
+    }
+    
+    .time-slot-legend {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .seating-option {
+        width: 100%;
+    }
+    
+    .directions-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-header, .calendar-body {
+        font-size: 0.7rem;
+    }
+    
+    .availability-legend {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-highlights {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2340,5 +2468,63 @@ input.invalid, select.invalid, textarea.invalid {
         display: block;
         padding: 8px;
         text-align: center;
+    }
+    
+    /* Reservation page mobile styling */
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .form-steps:before {
+        top: 15px;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+    }
+    
+    .reservation-form-container, .contact-form-container {
+        padding: 20px 15px;
+    }
+    
+    .time-slot {
+        flex-basis: 100%;
+    }
+    
+    .success-message {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .success-message ul {
+        text-align: left;
+    }
+    
+    /* Force calendar display to be more compact */
+    .calendar-header, .calendar-body {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+    }
+    
+    .day {
+        padding: 5px 2px;
+        font-size: 0.7rem;
+    }
+    
+    .policy-list li {
+        align-items: center;
+    }
+    
+    .policy-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .policy-text {
+        font-size: 0.85rem;
     }
 }
