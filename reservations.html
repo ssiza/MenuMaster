@@ -34,150 +34,364 @@
 
     <section class="reservations-section">
         <div class="container">
-            <h2 class="section-title">Make a Reservation</h2>
+            <div class="page-header">
+                <h2 class="section-title">Make a Reservation</h2>
+                <div class="separator">
+                    <span class="separator-icon"><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <p class="intro-text">Experience the exceptional cuisine and ambiance of Gourmet Haven. Reserve your table online and prepare for an unforgettable dining experience.</p>
+            </div>
             
-            <div class="reservation-intro">
-                <p>Experience the exceptional cuisine and ambiance of Gourmet Haven. Reserve your table online and prepare for an unforgettable dining experience.</p>
-                <p>For parties larger than 8, special events, or same-day reservations, please call us directly at <strong>(555) 123-4567</strong>.</p>
+            <div class="reservation-banner">
+                <div class="banner-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="banner-content">
+                    <h3>Need to make special arrangements?</h3>
+                    <p>For parties larger than 8, special events, or same-day reservations, please call us directly at <strong>(555) 123-4567</strong>.</p>
+                </div>
             </div>
             
             <div class="reservation-content">
                 <div class="reservation-form-container">
-                    <h3>Book Your Table</h3>
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Book Your Table</h3>
+                        <p>Complete the form below to request a reservation at Gourmet Haven.</p>
+                    </div>
+                    
+                    <div class="form-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Your Information</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Date & Time</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Preferences</div>
+                        </div>
+                    </div>
+                    
                     <form class="reservation-form" id="reservation-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
+                        <!-- Step 1: Contact Information -->
+                        <div class="form-step" id="step-1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
+                                </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="party-size"><i class="fas fa-users"></i> Party Size</label>
+                                    <select id="party-size" name="party-size" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="1">1 person</option>
+                                        <option value="2">2 people</option>
+                                        <option value="3">3 people</option>
+                                        <option value="4">4 people</option>
+                                        <option value="5">5 people</option>
+                                        <option value="6">6 people</option>
+                                        <option value="7">7 people</option>
+                                        <option value="8">8 people</option>
+                                    </select>
+                                    <div class="form-note">
+                                        <i class="fas fa-info-circle"></i> For parties larger than 8, please call us at (555) 123-4567.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="next-btn" data-next="2">Continue to Date & Time <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                         
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required>
+                        <!-- Step 2: Date & Time -->
+                        <div class="form-step hidden" id="step-2">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date"><i class="fas fa-calendar-day"></i> Date</label>
+                                    <input type="date" id="date" name="date" required>
+                                    <div class="form-note">
+                                        <i class="fas fa-info-circle"></i> Reservations available up to 30 days in advance.
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="time"><i class="fas fa-clock"></i> Time</label>
+                                    <select id="time" name="time" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <optgroup label="Lunch (Tuesday-Sunday)">
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="11:30">11:30 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="12:30">12:30 PM</option>
+                                            <option value="13:00">1:00 PM</option>
+                                            <option value="13:30">1:30 PM</option>
+                                        </optgroup>
+                                        <optgroup label="Dinner (Tuesday-Sunday)">
+                                            <option value="17:00">5:00 PM</option>
+                                            <option value="17:30">5:30 PM</option>
+                                            <option value="18:00">6:00 PM</option>
+                                            <option value="18:30">6:30 PM</option>
+                                            <option value="19:00">7:00 PM</option>
+                                            <option value="19:30">7:30 PM</option>
+                                            <option value="20:00">8:00 PM</option>
+                                            <option value="20:30">8:30 PM</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="form-note">
+                                        <i class="fas fa-info-circle"></i> We're closed on Mondays.
+                                    </div>
+                                </div>
                             </div>
                             
+                            <div class="selected-time-slots">
+                                <div class="time-slot-header">
+                                    <h4>Available Time Slots:</h4>
+                                    <p>Select your preferred time from the dropdown above.</p>
+                                </div>
+                                <div class="time-slots">
+                                    <div class="time-slot available">5:00 PM</div>
+                                    <div class="time-slot available">5:30 PM</div>
+                                    <div class="time-slot available">6:00 PM</div>
+                                    <div class="time-slot limited">6:30 PM</div>
+                                    <div class="time-slot available">7:00 PM</div>
+                                    <div class="time-slot available">7:30 PM</div>
+                                    <div class="time-slot booked">8:00 PM</div>
+                                    <div class="time-slot limited">8:30 PM</div>
+                                </div>
+                                <div class="time-slot-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color available"></span>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color limited"></span>
+                                        <span>Limited</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color booked"></span>
+                                        <span>Booked</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="back-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                                <button type="button" class="next-btn" data-next="3">Continue to Preferences <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Preferences -->
+                        <div class="form-step hidden" id="step-3">
                             <div class="form-group">
-                                <label for="party-size">Party Size</label>
-                                <select id="party-size" name="party-size" required>
-                                    <option value="" selected disabled>Select</option>
-                                    <option value="1">1 person</option>
-                                    <option value="2">2 people</option>
-                                    <option value="3">3 people</option>
-                                    <option value="4">4 people</option>
-                                    <option value="5">5 people</option>
-                                    <option value="6">6 people</option>
-                                    <option value="7">7 people</option>
-                                    <option value="8">8 people</option>
+                                <label for="occasion"><i class="fas fa-glass-cheers"></i> Special Occasion (Optional)</label>
+                                <select id="occasion" name="occasion">
+                                    <option value="">None</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="business">Business Dinner</option>
+                                    <option value="date">Date Night</option>
+                                    <option value="other">Other</option>
                                 </select>
                             </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
                             
                             <div class="form-group">
-                                <label for="time">Time</label>
-                                <select id="time" name="time" required>
-                                    <option value="" selected disabled>Select</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="11:30">11:30 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="12:30">12:30 PM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="13:30">1:30 PM</option>
-                                    <option value="17:00">5:00 PM</option>
-                                    <option value="17:30">5:30 PM</option>
-                                    <option value="18:00">6:00 PM</option>
-                                    <option value="18:30">6:30 PM</option>
-                                    <option value="19:00">7:00 PM</option>
-                                    <option value="19:30">7:30 PM</option>
-                                    <option value="20:00">8:00 PM</option>
-                                    <option value="20:30">8:30 PM</option>
-                                </select>
+                                <label for="requests"><i class="fas fa-comment-alt"></i> Special Requests (Optional)</label>
+                                <textarea id="requests" name="requests" rows="3" placeholder="Any specific requests or dietary restrictions we should know about?"></textarea>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="occasion">Special Occasion (Optional)</label>
-                            <select id="occasion" name="occasion">
-                                <option value="">None</option>
-                                <option value="birthday">Birthday</option>
-                                <option value="anniversary">Anniversary</option>
-                                <option value="business">Business Dinner</option>
-                                <option value="date">Date Night</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="requests">Special Requests (Optional)</label>
-                            <textarea id="requests" name="requests" rows="3"></textarea>
-                        </div>
-                        
-                        <div class="form-group preferences">
-                            <label>Seating Preferences</label>
-                            <div class="checkbox-group">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="indoor" name="seating" value="indoor">
-                                    <label for="indoor">Indoor</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" id="outdoor" name="seating" value="outdoor">
-                                    <label for="outdoor">Outdoor (Weather Permitting)</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" id="bar" name="seating" value="bar">
-                                    <label for="bar">Bar Area</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" id="no-preference" name="seating" value="no-preference">
-                                    <label for="no-preference">No Preference</label>
+                            
+                            <div class="form-group preferences">
+                                <label><i class="fas fa-chair"></i> Seating Preferences</label>
+                                <div class="seating-options">
+                                    <div class="seating-option">
+                                        <input type="radio" id="indoor" name="seating" value="indoor">
+                                        <label for="indoor">
+                                            <div class="option-icon"><i class="fas fa-door-closed"></i></div>
+                                            <div class="option-name">Indoor</div>
+                                        </label>
+                                    </div>
+                                    <div class="seating-option">
+                                        <input type="radio" id="outdoor" name="seating" value="outdoor">
+                                        <label for="outdoor">
+                                            <div class="option-icon"><i class="fas fa-tree"></i></div>
+                                            <div class="option-name">Outdoor</div>
+                                        </label>
+                                    </div>
+                                    <div class="seating-option">
+                                        <input type="radio" id="bar" name="seating" value="bar">
+                                        <label for="bar">
+                                            <div class="option-icon"><i class="fas fa-glass-martini-alt"></i></div>
+                                            <div class="option-name">Bar Area</div>
+                                        </label>
+                                    </div>
+                                    <div class="seating-option">
+                                        <input type="radio" id="no-preference" name="seating" value="no-preference" checked>
+                                        <label for="no-preference">
+                                            <div class="option-icon"><i class="fas fa-star"></i></div>
+                                            <div class="option-name">No Preference</div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group terms">
-                            <div class="checkbox">
-                                <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">I understand that my reservation is not confirmed until I receive a confirmation email or phone call.</label>
+                            
+                            <div class="form-group terms">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I understand that my reservation is not confirmed until I receive a confirmation email or phone call.</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group terms">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="marketing" name="marketing">
+                                    <label for="marketing">I would like to receive special offers and updates about Gourmet Haven.</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="back-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                                <button type="submit" class="reserve-btn"><i class="fas fa-check-circle"></i> Complete Reservation</button>
                             </div>
                         </div>
-                        
-                        <button type="submit" class="reserve-btn">Reserve Now</button>
                     </form>
                     <div id="form-response" class="hidden"></div>
                 </div>
                 
                 <div class="reservation-info">
-                    <div class="info-card">
-                        <h3><i class="fas fa-info-circle"></i> Reservation Policy</h3>
-                        <ul>
-                            <li>Reservations are available up to 30 days in advance.</li>
-                            <li>We hold reservations for 15 minutes past the scheduled time.</li>
-                            <li>For parties of 6 or more, a credit card is required to hold the reservation.</li>
-                            <li>Cancellations must be made at least 24 hours in advance.</li>
-                            <li>For special dietary needs, please note in your reservation or contact us directly.</li>
-                        </ul>
+                    <div class="info-card policy-card">
+                        <div class="card-header">
+                            <i class="fas fa-info-circle"></i>
+                            <h3>Reservation Policy</h3>
+                        </div>
+                        <div class="card-content">
+                            <ul class="policy-list">
+                                <li>
+                                    <div class="policy-icon"><i class="fas fa-calendar-alt"></i></div>
+                                    <div class="policy-text">Reservations are available up to 30 days in advance.</div>
+                                </li>
+                                <li>
+                                    <div class="policy-icon"><i class="fas fa-clock"></i></div>
+                                    <div class="policy-text">We hold reservations for 15 minutes past the scheduled time.</div>
+                                </li>
+                                <li>
+                                    <div class="policy-icon"><i class="fas fa-users"></i></div>
+                                    <div class="policy-text">For parties of 6 or more, a credit card is required to hold the reservation.</div>
+                                </li>
+                                <li>
+                                    <div class="policy-icon"><i class="fas fa-ban"></i></div>
+                                    <div class="policy-text">Cancellations must be made at least 24 hours in advance.</div>
+                                </li>
+                                <li>
+                                    <div class="policy-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="policy-text">For special dietary needs, please note in your reservation or contact us directly.</div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     
-                    <div class="info-card">
-                        <h3><i class="fas fa-utensils"></i> Private Dining</h3>
-                        <p>Looking to host a special event? Our private dining room can accommodate up to 20 guests for an intimate gathering.</p>
-                        <p>For private dining inquiries, please call us at (555) 123-4567 or email <a href="mailto:events@gourmethaven.com">events@gourmethaven.com</a>.</p>
+                    <div class="hours-available">
+                        <div class="card-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Hours & Availability</h3>
+                        </div>
+                        <div class="availability-calendar">
+                            <div class="calendar-header">
+                                <div class="weekday">Mon</div>
+                                <div class="weekday">Tue</div>
+                                <div class="weekday">Wed</div>
+                                <div class="weekday">Thu</div>
+                                <div class="weekday">Fri</div>
+                                <div class="weekday">Sat</div>
+                                <div class="weekday">Sun</div>
+                            </div>
+                            <div class="calendar-body">
+                                <div class="day closed">
+                                    <div class="lunch">Closed</div>
+                                    <div class="dinner">Closed</div>
+                                </div>
+                                <div class="day">
+                                    <div class="lunch">11:30-2:30</div>
+                                    <div class="dinner">5:00-10:00</div>
+                                </div>
+                                <div class="day">
+                                    <div class="lunch">11:30-2:30</div>
+                                    <div class="dinner">5:00-10:00</div>
+                                </div>
+                                <div class="day">
+                                    <div class="lunch">11:30-2:30</div>
+                                    <div class="dinner">5:00-10:00</div>
+                                </div>
+                                <div class="day">
+                                    <div class="lunch">11:30-2:30</div>
+                                    <div class="dinner">5:00-11:00</div>
+                                </div>
+                                <div class="day busiest">
+                                    <div class="lunch">10:00-3:00</div>
+                                    <div class="dinner">5:00-11:00</div>
+                                </div>
+                                <div class="day busy">
+                                    <div class="lunch">10:00-3:00</div>
+                                    <div class="dinner">5:00-10:00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="availability-legend">
+                            <div class="legend-item">
+                                <span class="legend-box busy"></span>
+                                <span>Busy</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-box busiest"></span>
+                                <span>Peak Hours</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-box closed"></span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="featured-image">
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant dining area">
+                    <div class="info-card private-dining-card">
+                        <div class="card-header">
+                            <i class="fas fa-glass-cheers"></i>
+                            <h3>Private Dining</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="featured-image">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Private dining room">
+                                <div class="image-caption">Our elegant private dining space</div>
+                            </div>
+                            <p>Looking to host a special event? Our private dining room can accommodate up to 20 guests for an intimate gathering.</p>
+                            <p>For private dining inquiries, please contact us at:</p>
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <i class="fas fa-phone"></i>
+                                    <span>(555) 123-4567</span>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:events@gourmethaven.com">events@gourmethaven.com</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,24 +458,197 @@
                 });
             });
             
+            // Multi-step form navigation
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const prevButtons = document.querySelectorAll('.back-btn');
+            const formSteps = document.querySelectorAll('.form-step');
+            const stepIndicators = document.querySelectorAll('.step');
+            
+            // Go to next step
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = parseInt(this.getAttribute('data-next')) - 1;
+                    const nextStep = parseInt(this.getAttribute('data-next'));
+                    
+                    // Basic validation for required fields in current step
+                    const currentFormStep = document.getElementById(`step-${currentStep + 1}`);
+                    const requiredFields = currentFormStep.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value) {
+                            isValid = false;
+                            field.classList.add('invalid');
+                            
+                            // Add shake animation for invalid fields
+                            field.classList.add('shake');
+                            setTimeout(() => {
+                                field.classList.remove('shake');
+                            }, 500);
+                        } else {
+                            field.classList.remove('invalid');
+                        }
+                    });
+                    
+                    if (!isValid) return;
+                    
+                    // Hide current step
+                    formSteps[currentStep].classList.add('hidden');
+                    
+                    // Show next step
+                    formSteps[nextStep - 1].classList.remove('hidden');
+                    
+                    // Update step indicators
+                    stepIndicators[currentStep].classList.remove('active');
+                    stepIndicators[currentStep].classList.add('completed');
+                    stepIndicators[nextStep - 1].classList.add('active');
+                    
+                    // Scroll to top of form
+                    reservationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Go to previous step
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = parseInt(this.getAttribute('data-prev'));
+                    const prevStep = parseInt(this.getAttribute('data-prev')) - 1;
+                    
+                    // Hide current step
+                    formSteps[currentStep].classList.add('hidden');
+                    
+                    // Show previous step
+                    formSteps[prevStep].classList.remove('hidden');
+                    
+                    // Update step indicators
+                    stepIndicators[currentStep].classList.remove('active');
+                    stepIndicators[prevStep].classList.add('active');
+                    stepIndicators[prevStep].classList.remove('completed');
+                    
+                    // Scroll to top of form
+                    reservationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
             // Reservation form submission
             reservationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Check validation
+                const lastStep = document.getElementById('step-3');
+                const requiredFields = lastStep.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        isValid = false;
+                        field.classList.add('invalid');
+                    } else {
+                        field.classList.remove('invalid');
+                    }
+                });
+                
+                if (!isValid) return;
+                
+                // Hide form steps
+                formSteps.forEach(step => {
+                    step.classList.add('hidden');
+                });
+                
                 // Simulating form submission
-                formResponse.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Thank you for your reservation request! We will confirm your booking shortly via email or phone.</div>';
+                formResponse.innerHTML = `
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i> 
+                        <div>
+                            <h3>Reservation Request Received!</h3>
+                            <p>Thank you for your reservation request. We will confirm your booking shortly via email or phone.</p>
+                            <p>Reservation Details:</p>
+                            <ul>
+                                <li>Name: ${document.getElementById('name').value}</li>
+                                <li>Date: ${document.getElementById('date').value}</li>
+                                <li>Time: ${document.getElementById('time').value}</li>
+                                <li>Party Size: ${document.getElementById('party-size').value} people</li>
+                            </ul>
+                        </div>
+                    </div>`;
                 formResponse.classList.remove('hidden');
                 
-                // Reset form
-                reservationForm.reset();
-                
-                // Hide success message after 5 seconds
+                // Reset form and step indicators
                 setTimeout(() => {
+                    reservationForm.reset();
+                    stepIndicators.forEach((step, index) => {
+                        if (index === 0) {
+                            step.classList.add('active');
+                            step.classList.remove('completed');
+                        } else {
+                            step.classList.remove('active');
+                            step.classList.remove('completed');
+                        }
+                    });
+                    
+                    formSteps.forEach((step, index) => {
+                        if (index === 0) {
+                            step.classList.remove('hidden');
+                        } else {
+                            step.classList.add('hidden');
+                        }
+                    });
+                    
                     formResponse.classList.add('hidden');
-                }, 5000);
+                }, 8000);
                 
                 // Scroll to response
                 formResponse.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Date change event to update available time slots
+            const dateInput = document.getElementById('date');
+            dateInput.addEventListener('change', function() {
+                // Simulating getting available times for the selected date
+                // In a real app, this would be an API call
+                const selectedDate = new Date(this.value);
+                const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+                
+                // Just a sample logic to show different available slots for different days
+                const timeSlots = document.querySelectorAll('.time-slot');
+                
+                // Reset all time slots
+                timeSlots.forEach(slot => {
+                    slot.className = 'time-slot available';
+                });
+                
+                // Simulate different availability based on day of week
+                if (dayOfWeek === 5 || dayOfWeek === 6) { // Friday or Saturday
+                    // Weekend - busier
+                    document.querySelector('.time-slot:nth-child(3)').className = 'time-slot limited';
+                    document.querySelector('.time-slot:nth-child(4)').className = 'time-slot booked';
+                    document.querySelector('.time-slot:nth-child(6)').className = 'time-slot booked';
+                    document.querySelector('.time-slot:nth-child(7)').className = 'time-slot booked';
+                } else if (dayOfWeek === 1) { // Monday
+                    // Closed
+                    timeSlots.forEach(slot => {
+                        slot.className = 'time-slot booked';
+                    });
+                } else {
+                    // Weekday - less busy
+                    document.querySelector('.time-slot:nth-child(7)').className = 'time-slot limited';
+                }
+            });
+            
+            // Time select element should be updated based on available times
+            const timeSelect = document.getElementById('time');
+            timeSelect.addEventListener('change', function() {
+                const selectedTime = this.value;
+                
+                // Highlight the selected time in the time slots display
+                const timeSlots = document.querySelectorAll('.time-slot');
+                timeSlots.forEach(slot => {
+                    if (slot.textContent === selectedTime) {
+                        slot.classList.add('selected');
+                    } else {
+                        slot.classList.remove('selected');
+                    }
+                });
             });
         });
     </script>
