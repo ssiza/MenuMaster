@@ -1713,7 +1713,7 @@ body.dark-mode .category-filter.sticky {
 .reservation-content {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: 40px;
+    gap: 20px;
 }
 
 /* Form Steps */
@@ -2036,7 +2036,7 @@ input.invalid, select.invalid, textarea.invalid {
 .reservation-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 15px;
 }
 
 .reservation-info .info-card {
@@ -2048,17 +2048,27 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 .reservation-info .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .info-card .card-header {
     background-color: var(--primary-color);
     color: white;
-    padding: 15px 20px;
+    padding: 10px 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+}
+
+/* Smaller icons and text for reservation page */
+.reservation-info .card-header i {
+    font-size: 1.2rem;
+}
+
+.reservation-info .card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
 }
 
 .card-header i {
