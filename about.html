@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Gourmet Haven Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="dark-mode-toggle" class="dark-mode-input">
+        <label for="dark-mode-toggle" class="dark-mode-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Gourmet Haven</h1>
+            <p class="tagline">A Culinary Journey Like No Other</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Menu</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="reservations.html">Reservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant interior">
+                </div>
+                <div class="about-text">
+                    <h3>Passion for Culinary Excellence</h3>
+                    <p>Gourmet Haven was founded in 2010 by Chef Michael Rodriguez, whose passion for culinary arts began in his grandmother's kitchen in Naples, Italy. After training at the Culinary Institute of America and working in Michelin-starred restaurants across Europe, Chef Rodriguez returned to his hometown to create a restaurant that would blend traditional techniques with innovative flavors.</p>
+                    
+                    <p>What started as a small, intimate dining spot has grown into one of the city's most beloved culinary destinations. Our philosophy is simple: use the freshest ingredients, prepare them with care, and serve them with love.</p>
+                    
+                    <h3>Our Approach</h3>
+                    <p>At Gourmet Haven, we believe that dining is not just about food—it's an experience that engages all the senses. From the moment you step through our doors, you'll be enveloped in an atmosphere of warmth and sophistication.</p>
+                    
+                    <p>We work closely with local farmers and producers to source the highest quality ingredients, many of which are organic and sustainably harvested. Our menu changes seasonally to reflect the freshest available produce, allowing our chefs to create dishes that showcase the natural flavors of each ingredient.</p>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chef Michael Rodriguez">
+                        </div>
+                        <h3>Michael Rodriguez</h3>
+                        <p class="team-position">Executive Chef & Founder</p>
+                        <p>With over 20 years of culinary experience, Chef Rodriguez brings passion and creativity to every dish.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sophia Chen">
+                        </div>
+                        <h3>Sophia Chen</h3>
+                        <p class="team-position">Pastry Chef</p>
+                        <p>A master of sweet creations, Sophia's desserts are works of art that delight both the eye and the palate.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="James Wilson">
+                        </div>
+                        <h3>James Wilson</h3>
+                        <p class="team-position">Sommelier</p>
+                        <p>With an encyclopedic knowledge of wines, James ensures the perfect pairing for your meal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Gourmet Haven Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            
+            // Back to top functionality
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Dark mode toggle with state persistence
+            darkModeToggle.checked = localStorage.getItem('darkMode') === 'true';
+            if (darkModeToggle.checked) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', this.checked);
+            });
+        });
+    </script>
+</body>
+</html>

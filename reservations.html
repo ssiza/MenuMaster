@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations - Gourmet Haven Restaurant</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="dark-mode-toggle" class="dark-mode-input">
+        <label for="dark-mode-toggle" class="dark-mode-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Gourmet Haven</h1>
+            <p class="tagline">A Culinary Journey Like No Other</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="reservations.html" class="active">Reservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="reservations-section">
+        <div class="container">
+            <h2 class="section-title">Make a Reservation</h2>
+            
+            <div class="reservation-intro">
+                <p>Experience the exceptional cuisine and ambiance of Gourmet Haven. Reserve your table online and prepare for an unforgettable dining experience.</p>
+                <p>For parties larger than 8, special events, or same-day reservations, please call us directly at <strong>(555) 123-4567</strong>.</p>
+            </div>
+            
+            <div class="reservation-content">
+                <div class="reservation-form-container">
+                    <h3>Book Your Table</h3>
+                    <form class="reservation-form" id="reservation-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="party-size">Party Size</label>
+                                <select id="party-size" name="party-size" required>
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="occasion">Special Occasion (Optional)</label>
+                            <select id="occasion" name="occasion">
+                                <option value="">None</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="business">Business Dinner</option>
+                                <option value="date">Date Night</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requests">Special Requests (Optional)</label>
+                            <textarea id="requests" name="requests" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group preferences">
+                            <label>Seating Preferences</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="indoor" name="seating" value="indoor">
+                                    <label for="indoor">Indoor</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="outdoor" name="seating" value="outdoor">
+                                    <label for="outdoor">Outdoor (Weather Permitting)</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="bar" name="seating" value="bar">
+                                    <label for="bar">Bar Area</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="no-preference" name="seating" value="no-preference">
+                                    <label for="no-preference">No Preference</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group terms">
+                            <div class="checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I understand that my reservation is not confirmed until I receive a confirmation email or phone call.</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="reserve-btn">Reserve Now</button>
+                    </form>
+                    <div id="form-response" class="hidden"></div>
+                </div>
+                
+                <div class="reservation-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> Reservation Policy</h3>
+                        <ul>
+                            <li>Reservations are available up to 30 days in advance.</li>
+                            <li>We hold reservations for 15 minutes past the scheduled time.</li>
+                            <li>For parties of 6 or more, a credit card is required to hold the reservation.</li>
+                            <li>Cancellations must be made at least 24 hours in advance.</li>
+                            <li>For special dietary needs, please note in your reservation or contact us directly.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-utensils"></i> Private Dining</h3>
+                        <p>Looking to host a special event? Our private dining room can accommodate up to 20 guests for an intimate gathering.</p>
+                        <p>For private dining inquiries, please call us at (555) 123-4567 or email <a href="mailto:events@gourmethaven.com">events@gourmethaven.com</a>.</p>
+                    </div>
+                    
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant dining area">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Gourmet Haven Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const reservationForm = document.getElementById('reservation-form');
+            const formResponse = document.getElementById('form-response');
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
+            
+            // Back to top functionality
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Dark mode toggle with state persistence
+            darkModeToggle.checked = localStorage.getItem('darkMode') === 'true';
+            if (darkModeToggle.checked) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', this.checked);
+            });
+            
+            // Ensure only one seating preference can be selected
+            const seatingCheckboxes = document.querySelectorAll('input[name="seating"]');
+            seatingCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        seatingCheckboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false;
+                        });
+                    }
+                });
+            });
+            
+            // Reservation form submission
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulating form submission
+                formResponse.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Thank you for your reservation request! We will confirm your booking shortly via email or phone.</div>';
+                formResponse.classList.remove('hidden');
+                
+                // Reset form
+                reservationForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formResponse.classList.add('hidden');
+                }, 5000);
+                
+                // Scroll to response
+                formResponse.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
