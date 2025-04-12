@@ -668,21 +668,9 @@
                 }
             });
             
-            // Time select element should be updated based on available times
-            const timeSelect = document.getElementById('time');
-            timeSelect.addEventListener('change', function() {
-                const selectedTime = this.value;
-                
-                // Highlight the selected time in the time slots display
-                const timeSlots = document.querySelectorAll('.time-slot');
-                timeSlots.forEach(slot => {
-                    if (slot.textContent === selectedTime) {
-                        slot.classList.add('selected');
-                    } else {
-                        slot.classList.remove('selected');
-                    }
-                });
-            });
+            // Note: The time selection is now handled through the time-slots UI
+            // No need for the timeSelect event listener since we've replaced the dropdown
+            // with the visual time slot selector
         });
     </script>
 </body>
