@@ -467,6 +467,61 @@ body.dark-mode .category-filter.sticky {
     transform: translateY(-3px);
 }
 
+/* Show Order Button */
+#show-order-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 100;
+    font-size: 1.4rem;
+    transform: scale(0.8);
+}
+
+#show-order-btn.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+#show-order-btn:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+#show-order-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px) scale(1.05);
+}
+
+#order-count-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 /* Navigation Styles */
 .main-nav {
     margin-top: 20px;
@@ -840,6 +895,61 @@ body.dark-mode .category-filter.sticky {
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
+/* Show Order Button */
+#show-order-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 100;
+    font-size: 1.4rem;
+    transform: scale(0.8);
+}
+
+#show-order-btn.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+#show-order-btn:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+#show-order-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px) scale(1.05);
+}
+
+#order-count-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-items {
@@ -888,6 +998,20 @@ body.dark-mode .category-filter.sticky {
         right: 15px;
         width: 40px;
         height: 40px;
+    }
+    
+    #show-order-btn {
+        bottom: 70px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    #order-count-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
     }
 }
 
@@ -1522,6 +1646,16 @@ body.dark-mode .category-filter.sticky {
 
 .success-message li {
     margin-bottom: 5px;
+}
+
+.highlight-note {
+    background-color: rgba(211, 84, 0, 0.1);
+    border-left: 3px solid var(--accent-color);
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-style: italic;
+    font-weight: 600;
 }
 
 @keyframes slideInUp {

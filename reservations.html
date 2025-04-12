@@ -563,6 +563,54 @@
                 });
             });
             
+            // Update summary on step 3 when reaching that step
+            document.querySelector('[data-next="3"]').addEventListener('click', function() {
+                // Update the reservation summary before showing it
+                document.getElementById('summary-name').textContent = document.getElementById('name').value;
+                document.getElementById('summary-size').textContent = document.getElementById('party-size').value + ' people';
+                document.getElementById('summary-date').textContent = new Date(document.getElementById('date').value).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Get the selected time slot
+                const selectedTimeSlot = document.querySelector('.time-slot.selected');
+                if (selectedTimeSlot) {
+                    // Format the time for display (e.g., 17:30 -> 5:30 PM)
+                    const timeValue = selectedTimeSlot.getAttribute('data-time');
+                    document.getElementById('summary-time').textContent = selectedTimeSlot.textContent;
+                }
+            });
+            
+            // Add a safeguard if no time is selected
+            document.querySelector('button[type="submit"]').addEventListener('click', function(e) {
+                const selectedTime = document.getElementById('selected-time').value;
+                if (!selectedTime) {
+                    e.preventDefault();
+                    const timeSlots = document.querySelector('.time-slots');
+                    timeSlots.classList.add('shake');
+                    setTimeout(() => {
+                        timeSlots.classList.remove('shake');
+                    }, 500);
+                    // Add a note below time slots
+                    const errorNote = document.createElement('p');
+                    errorNote.classList.add('error-note');
+                    errorNote.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please select a time slot';
+                    errorNote.style.color = '#e74c3c';
+                    errorNote.style.marginTop = '8px';
+                    errorNote.style.fontSize = '0.9rem';
+                    
+                    // Remove any existing error notes first
+                    const existingNote = document.querySelector('.error-note');
+                    if (existingNote) existingNote.remove();
+                    
+                    document.querySelector('.time-slots').after(errorNote);
+                    return;
+                }
+            });
+            
             // Reservation form submission
             reservationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -583,10 +631,39 @@
                 
                 if (!isValid) return;
                 
+                // Collect all form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    partySize: document.getElementById('party-size').value,
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('selected-time').value,
+                    seating: document.querySelector('input[name="seating"]:checked')?.value || "indoor",
+                    occasion: document.getElementById('occasion').value,
+                    requests: document.getElementById('requests').value,
+                    marketing: document.getElementById('marketing').checked
+                };
+                
                 // Hide form steps
                 formSteps.forEach(step => {
                     step.classList.add('hidden');
                 });
+                
+                // Format the date nicely
+                const formattedDate = new Date(formData.date).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long', 
+                    day: 'numeric'
+                });
+                
+                // Get the time text from the selected time slot
+                let selectedTimeDisplay = "Not selected";
+                const timeSlot = document.querySelector(`.time-slot[data-time="${formData.time}"]`);
+                if (timeSlot) {
+                    selectedTimeDisplay = timeSlot.textContent;
+                }
                 
                 // Simulating form submission
                 formResponse.innerHTML = `
@@ -594,13 +671,19 @@
                         <i class="fas fa-check-circle"></i> 
                         <div>
                             <h3>Reservation Request Received!</h3>
-                            <p>Thank you for your reservation request. We will confirm your booking shortly via email or phone.</p>
+                            <p>Thank you for your reservation request. In a real application, our staff would contact you via email or phone within 24 hours to confirm your booking.</p>
+                            <p class="highlight-note">This is a demonstration website. No actual reservation has been made.</p>
                             <p>Reservation Details:</p>
                             <ul>
-                                <li>Name: ${document.getElementById('name').value}</li>
-                                <li>Date: ${document.getElementById('date').value}</li>
-                                <li>Time: ${document.getElementById('time').value}</li>
-                                <li>Party Size: ${document.getElementById('party-size').value} people</li>
+                                <li>Name: ${formData.name}</li>
+                                <li>Email: ${formData.email}</li>
+                                <li>Phone: ${formData.phone}</li>
+                                <li>Date: ${formattedDate}</li>
+                                <li>Time: ${selectedTimeDisplay}</li>
+                                <li>Party Size: ${formData.partySize} people</li>
+                                <li>Seating: ${formData.seating.charAt(0).toUpperCase() + formData.seating.slice(1)}</li>
+                                ${formData.occasion ? `<li>Special Occasion: ${formData.occasion}</li>` : ''}
+                                ${formData.requests ? `<li>Special Requests: ${formData.requests}</li>` : ''}
                             </ul>
                         </div>
                     </div>`;
