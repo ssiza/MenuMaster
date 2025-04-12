@@ -665,12 +665,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Toggle button to show order summary -->
-    <div id="show-order-btn" class="hidden">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="order-count-badge">0</span>
-    </div>
-
     <div id="order-summary" class="hidden">
         <div class="order-summary-header">
             <h3>Your Order <i class="fas fa-shopping-cart"></i></h3>
@@ -696,8 +690,6 @@
             const darkModeToggle = document.getElementById('dark-mode-toggle');
             const orderSummary = document.getElementById('order-summary');
             const closeOrderSummaryBtn = document.getElementById('close-order-summary');
-            const showOrderBtn = document.getElementById('show-order-btn');
-            const orderCountBadge = document.getElementById('order-count-badge');
             const headerHeight = document.querySelector('.header').offsetHeight;
             
             let filterPosition = filterContainer.getBoundingClientRect().top + window.scrollY;
@@ -896,7 +888,6 @@
                 // Add items to order summary
                 if (orderItems.length === 0) {
                     orderItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-                    showOrderBtn.classList.add('hidden'); // Hide toggle button when cart is empty
                 } else {
                     orderItems.forEach(item => {
                         const itemElement = document.createElement('div');
@@ -910,16 +901,6 @@
                         `;
                         orderItemsContainer.appendChild(itemElement);
                     });
-                    
-                    // Update the counter on the show button
-                    let totalItems = 0;
-                    orderItems.forEach(item => totalItems += item.quantity);
-                    orderCountBadge.textContent = totalItems;
-                    
-                    // Show the toggle button when cart has items but is hidden
-                    if (orderSummary.classList.contains('hidden')) {
-                        showOrderBtn.classList.remove('hidden');
-                    }
                 }
                 
                 // Update total
@@ -929,17 +910,6 @@
             // Close order summary
             closeOrderSummaryBtn.addEventListener('click', function() {
                 orderSummary.classList.add('hidden');
-                
-                // Show the toggle button if there are items in the cart
-                if (orderItems.length > 0) {
-                    showOrderBtn.classList.remove('hidden');
-                }
-            });
-            
-            // Show order summary when toggle button is clicked
-            showOrderBtn.addEventListener('click', function() {
-                orderSummary.classList.remove('hidden');
-                showOrderBtn.classList.add('hidden');
             });
             
             // Checkout button
@@ -951,7 +921,6 @@
                     orderTotal = 0;
                     updateOrderSummary();
                     orderSummary.classList.add('hidden');
-                    showOrderBtn.classList.add('hidden'); // Hide toggle button after checkout
                 }
             });
             
