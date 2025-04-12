@@ -519,7 +519,7 @@ body.dark-mode .category-filter.sticky {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(129, 129, 129, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* Navigation Styles */

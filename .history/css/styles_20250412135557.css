@@ -519,13 +519,13 @@ body.dark-mode .category-filter.sticky {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(129, 129, 129, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* Navigation Styles */
 .main-nav {
     margin-top: 20px;
-    border-top: 1px solid rgba(162, 162, 162, 0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
     padding-top: 15px;
 }
 
@@ -538,7 +538,7 @@ body.dark-mode .category-filter.sticky {
 }
 
 .main-nav a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
